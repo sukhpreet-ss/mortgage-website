@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sukhpreet Singh | Mortgage Agent Level 2</title>
-  <meta name="description" content="Sukhpreet Singh, Mortgage Agent Level 2 with Mortgage Alliance (Brokerage Lic #10530), specializing in residential and commercial mortgages in Brampton and across Ontario." />
+  <meta
+    name="description"
+    content="Sukhpreet Singh – Mortgage Agent Level 2 with Mortgage Alliance (Lic #10530). Residential & commercial mortgages across the GTA."
+  />
 
   <style>
     :root {
-      --primary: #0c3c78;
-      --primary-light: #1459ad;
-      --accent: #f8b400;
-      --bg: #f5f7fb;
-      --text: #111827;
-      --muted: #6b7280;
-      --white: #ffffff;
-      --max-width: 1100px;
-      --radius-lg: 16px;
+      --primary: #004d99;
+      --primary-dark: #003366;
+      --accent: #00a884;
+      --bg-soft: #f5f7fb;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --card-radius: 16px;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
     }
 
@@ -27,9 +28,10 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+      background: #ffffff;
       line-height: 1.6;
     }
 
@@ -43,1074 +45,829 @@
       display: block;
     }
 
-    /* Layout helpers */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    .page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f3f4ff 0%, #ffffff 40%, #e8f4ff 100%);
     }
 
     header {
-      background: linear-gradient(135deg, #020617, #0b1f3b);
-      color: var(--white);
-      padding: 1.25rem 0;
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background-color: rgba(3, 7, 18, 0.92);
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     }
 
     .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.9rem 1.4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
-    .brand {
+    .nav-left {
       display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .brand-name {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .brand-sub {
-      font-size: 0.75rem;
-      opacity: 0.8;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
       align-items: center;
+      gap: 0.9rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #004d99);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       font-size: 0.9rem;
     }
 
-    nav a {
-      color: #e5e7eb;
-      position: relative;
-      padding-bottom: 0.2rem;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(248, 180, 0, 0.7);
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 500;
+    .nav-contact span {
       white-space: nowrap;
     }
 
-    .nav-cta:hover {
-      background: rgba(248, 180, 0, 0.08);
-    }
-
-    /* Mobile nav button */
-    .nav-toggle {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .nav-toggle span {
-      width: 22px;
-      height: 2px;
-      background: #e5e7eb;
+    .pill-badge {
+      padding: 0.3rem 0.7rem;
       border-radius: 999px;
-    }
-
-    /* Hero section */
-    .hero {
-      padding: 3.5rem 0 3rem;
-      background: radial-gradient(circle at top left, #1d4ed8 0, #020617 45%, #020617 100%);
-      color: var(--white);
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      background: #e0f2fe;
+      color: #0369a1;
       font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.1rem, 3.1vw, 2.8rem);
-      line-height: 1.1;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-tagline {
-      font-size: 0.98rem;
-      color: #d1d5db;
-      max-width: 34rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .badge {
-      font-size: 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.25rem 0.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: #e5e7eb;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     .btn-primary {
-      padding: 0.7rem 1.3rem;
+      padding: 0.55rem 1rem;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, var(--accent), #fde68a);
-      color: #1f2937;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #ffffff;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       cursor: pointer;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3);
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.35);
+      gap: 0.4rem;
     }
 
-    .btn-primary span.arrow {
-      font-size: 1.1rem;
+    .btn-primary small {
+      font-size: 0.78rem;
+      opacity: 0.9;
     }
 
-    .btn-ghost {
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: transparent;
-      color: #e5e7eb;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .hero-note {
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.12), rgba(15, 23, 42, 0.98));
-      border-radius: 24px;
-      padding: 1.4rem 1.5rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-    }
-
-    .hero-card-title {
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
-      color: #e5e7eb;
-    }
-
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: #d1d5db;
-    }
-
-    .hero-stat {
-      background: rgba(15, 23, 42, 0.8);
-      border-radius: 14px;
-      padding: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .hero-stat-label {
-      font-size: 0.72rem;
-      color: #9ca3af;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-stat-value {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .hero-contact {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px dashed rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-      color: #e5e7eb;
-    }
-
-    .hero-contact-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .hero-contact a {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    /* Section base */
-    section {
-      padding: 3.5rem 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 30rem;
+    main {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 1.8rem 1.4rem 3rem;
     }
 
-    /* About */
-    .about-grid {
+    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
       gap: 2rem;
-      align-items: start;
+      align-items: center;
+      margin-bottom: 2.8rem;
     }
 
-    .card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 1.6rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    }
-
-    .about-highlight {
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      color: #166534;
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-body {
-      font-size: 0.95rem;
-      color: var(--muted);
       margin-bottom: 1rem;
     }
 
-    .about-list {
-      list-style: none;
-      font-size: 0.9rem;
-      color: var(--text);
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.5rem 1rem;
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
     }
 
-    .about-list li::before {
-      content: "•";
-      margin-right: 0.35rem;
-      color: var(--primary-light);
+    .hero h2 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+      color: #0f172a;
     }
 
-    .disclaimer {
-      font-size: 0.74rem;
-      color: var(--muted);
-      margin-top: 0.9rem;
+    .hero h2 span {
+      color: var(--primary);
     }
 
-    /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+      max-width: 34rem;
     }
 
-    .service-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem 1.2rem;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-      border-top: 4px solid var(--primary-light);
+    .hero-highlights {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
     }
 
-    .service-title {
+    .chip {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: #0f172a;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-secondary {
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: #ffffff;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note b {
+      color: var(--primary-dark);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .card-hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hero-top {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid #e5e7eb;
+    }
+
+    .advisor-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .advisor-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .badge-years {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      background: #f97316;
+      color: #ffffff;
+      font-size: 0.75rem;
       font-weight: 600;
-      margin-bottom: 0.1rem;
     }
 
-    .service-pills {
+    .card-line {
+      font-size: 0.83rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .card-line b {
+      color: #111827;
+    }
+
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.3rem;
+      margin-bottom: 0.6rem;
     }
 
     .pill {
-      font-size: 0.75rem;
-      padding: 0.12rem 0.6rem;
+      padding: 0.25rem 0.55rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.04);
-      color: var(--muted);
+      font-size: 0.74rem;
+      background: #eff6ff;
+      color: #1d4ed8;
     }
 
-    /* Process */
+    .lender-strip {
+      margin-top: 0.7rem;
+      padding-top: 0.65rem;
+      border-top: 1px dashed #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .lender-strip span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lender-logo {
+      width: 72px;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #0f172a;
+      padding: 0.3rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card-service {
+      background: #ffffff;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .card-service h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-service p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .service-tag {
+      font-size: 0.74rem;
+      padding: 0.26rem 0.55rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1rem;
-      font-size: 0.9rem;
     }
 
-    .step {
-      background: var(--white);
-      border-radius: 1rem;
+    .step-card {
+      background: #0f172a;
+      color: #e5e7eb;
       padding: 1rem;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
+      border-radius: var(--card-radius);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+      position: relative;
     }
 
     .step-number {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--primary-light);
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-    }
-
-    .step-title {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .step-body {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* Testimonials */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      font-size: 0.88rem;
-    }
-
-    .testimonial {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 1.2rem;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
-    }
-
-    .testimonial-stars {
-      color: #fbbf24;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 0.8rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
     }
 
-    .testimonial-text {
-      color: var(--muted);
-      margin-bottom: 0.7rem;
+    .step-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
     }
 
-    .testimonial-name {
+    .step-card p {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .testimonial-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .card-quote {
+      background: #ffffff;
+      border-radius: var(--card-radius);
+      padding: 1.1rem;
+      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+    }
+
+    .card-quote p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .quote-mark {
+      font-size: 2.5rem;
+      color: rgba(148, 163, 184, 0.6);
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+    }
+
+    .quote-author {
+      font-size: 0.8rem;
       font-weight: 600;
-      font-size: 0.85rem;
+      color: #0f172a;
     }
 
-    .testimonial-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
+    .quote-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
     }
 
-    /* FAQ */
-    .faq-grid {
-      max-width: 800px;
-      margin: 0 auto;
+    .card-contact {
+      background: radial-gradient(circle at 10% 0%, #ffffff, #0f172a);
+      color: #e5e7eb;
+      border-radius: var(--card-radius);
+      padding: 1.1rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.65);
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
-      font-size: 0.9rem;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border-radius: 0.9rem;
-      padding: 0.9rem 1.1rem;
-      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
-    }
-
-    .faq-question {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .faq-answer {
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .contact-details p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .contact-details strong {
-      color: var(--text);
-    }
-
-    .contact-cta {
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-    }
-
-    form {
-      display: grid;
-      gap: 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    label {
-      font-weight: 500;
-      font-size: 0.82rem;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.6rem 0.7rem;
-      border-radius: 0.6rem;
-      border: 1px solid #d1d5db;
-      font: inherit;
-      background: #f9fafb;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: 2px solid var(--primary-light);
-      outline-offset: 1px;
-      background: #ffffff;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: space-between;
       gap: 0.8rem;
     }
 
-    .form-note {
-      font-size: 0.75rem;
-      color: var(--muted);
+    .card-contact h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
     }
 
-    .btn-submit {
-      margin-top: 0.4rem;
-      justify-content: center;
-      width: fit-content;
+    .card-contact p {
+      font-size: 0.84rem;
+      color: #dbeafe;
     }
 
-    footer {
-      background: #020617;
-      color: #9ca3af;
-      padding: 1.3rem 0 1.6rem;
-      font-size: 0.8rem;
+    .contact-row {
+      font-size: 0.86rem;
+      margin: 0.25rem 0;
     }
 
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-inner a {
+    .contact-row b {
       color: #e5e7eb;
     }
 
-    /* Responsive */
+    .btn-whatsapp {
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: #22c55e;
+      color: #022c22;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-whatsapp span {
+      font-size: 1.05rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1rem 1.4rem 1.4rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
     @media (max-width: 900px) {
-      .hero-inner,
-      .about-grid,
-      .services-grid,
-      .process-grid,
-      .testimonials-grid,
-      .contact-grid {
+      .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-
-      .services-grid,
-      .testimonials-grid {
-        gap: 1rem;
+      .hero-right {
+        order: -1;
       }
-
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .process-grid {
-        gap: 0.8rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .testimonial-cta {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      nav ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        left: 0;
-        background: rgba(3, 7, 18, 0.98);
-        padding: 0.9rem 1.5rem 1.2rem;
+    @media (max-width: 640px) {
+      .nav {
         flex-direction: column;
-        gap: 0.7rem;
-        transform: scaleY(0);
-        transform-origin: top;
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.18s ease, opacity 0.18s ease;
+        align-items: flex-start;
+        gap: 0.6rem;
       }
-
-      nav ul.open {
-        transform: scaleY(1);
-        opacity: 1;
-        pointer-events: auto;
+      .nav-contact {
+        width: 100%;
+        justify-content: space-between;
       }
-
-      .hero {
-        padding-top: 2.5rem;
+      .services-grid,
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
-
-      .hero-card {
-        margin-top: 0.8rem;
+      .card-hero {
+        border-radius: 20px;
+      }
+      main {
+        padding-inline: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header / Nav -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-name">Sukhpreet Singh</div>
-        <div class="brand-sub">Mortgage Agent Level 2 · Mortgage Alliance (Lic #10530)</div>
-      </div>
-
-      <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </div>
-
-      <nav>
-        <ul id="navMenu">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Solutions</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a class="nav-cta" href="tel:+14167064646">Call: +1 416-706-4646</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="eyebrow">Brampton · GTA · Ontario</div>
-        <h1>Smart <span>Residential & Commercial</span> mortgage strategies tailored to you.</h1>
-        <p class="hero-tagline">
-          Work directly with an experienced Mortgage Agent Level 2 who has helped clients for over 10 years
-          with purchases, refinances, renewals, investors, and complex deals.
-        </p>
-
-        <div class="hero-badges">
-          <span class="badge">🏡 First-time & repeat buyers</span>
-          <span class="badge">🏢 Business & commercial mortgages</span>
-          <span class="badge">💼 Self-employed & bruised credit</span>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <div class="nav-left">
+          <div class="logo-wrap">
+            <div class="logo-badge">SS</div>
+            <div class="brand-text">
+              <h1>Sukhpreet Singh</h1>
+              <p>Mortgage Agent Level 2 · Mortgage Alliance (Lic #10530)</p>
+            </div>
+          </div>
         </div>
-
-        <div class="hero-cta-group">
-          <a href="#contact" class="btn-primary">
-            Book a free 15-min call <span class="arrow">↗</span>
+        <div class="nav-contact">
+          <span class="pill-badge">Based in Brampton · Serving GTA</span>
+          <a href="tel:+14167064646" class="btn-primary">
+            Call now
+            <small>+1&nbsp;416-706-4646</small>
           </a>
-          <a href="#services" class="btn-ghost">Explore mortgage solutions</a>
-        </div>
-        <p class="hero-note">No-obligation advice · Multiple lenders · Solutions for simple and complex files.</p>
-      </div>
-
-      <aside class="hero-card" aria-label="Quick overview card">
-        <div class="hero-card-title">Quick Snapshot</div>
-        <div class="hero-card-grid">
-          <div class="hero-stat">
-            <div class="hero-stat-label">Experience</div>
-            <div class="hero-stat-value">10+ years</div>
-            <p style="font-size: 0.8rem; color:#9ca3af;">Deep knowledge of residential & commercial lending.</p>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-label">Mortgage Types</div>
-            <div class="hero-stat-value">All kinds</div>
-            <p style="font-size: 0.8rem; color:#9ca3af;">Purchases, renewals, refinances, second mortgages & more.</p>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-label">Service Area</div>
-            <div class="hero-stat-value">Brampton & GTA</div>
-            <p style="font-size: 0.8rem; color:#9ca3af;">Helping clients across Ontario.</p>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-label">Client Types</div>
-            <div class="hero-stat-value">Families & Businesses</div>
-            <p style="font-size: 0.8rem; color:#9ca3af;">First-time buyers, investors, self-employed, corporations.</p>
-          </div>
-        </div>
-
-        <div class="hero-contact">
-          <div class="hero-contact-row">
-            <span><strong>Call / WhatsApp:</strong> <a href="tel:+14167064646">+1 416-706-4646</a></span>
-            <span><strong>Email:</strong> <a href="mailto:sukhpreet@timefg.ca">sukhpreet@timefg.ca</a></span>
-            <span><strong>Brokerage:</strong> Mortgage Alliance · Brokerage Lic #10530</span>
-            <span><strong>Location:</strong> Based in Brampton · Serving all of Ontario</span>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">About Sukhpreet</div>
-        <h2 class="section-title">Your partner in every stage of the mortgage journey.</h2>
-        <p class="section-subtitle">
-          From first home to commercial plaza, you get personalized strategies, transparent guidance, and access to a wide range of lenders.
-        </p>
-      </div>
-
-      <div class="about-grid">
-        <div class="card">
-          <p class="about-highlight">
-            “My job is not just to get you a mortgage — it’s to get you the right mortgage for your long-term goals.”
-          </p>
-          <p class="about-body">
-            With over a decade in the mortgage industry, Sukhpreet has worked with salaried employees, self-employed
-            professionals, business owners, and real estate investors. Every file is reviewed from multiple angles to
-            improve approval chances and optimize cost over the life of the mortgage.
-          </p>
-          <p class="about-body">
-            As a Mortgage Agent Level 2 with <strong>Mortgage Alliance (Brokerage Lic #10530)</strong>, Sukhpreet can
-            access multiple lenders — major banks, credit unions, monoline lenders, and private options — to help you
-            navigate even complex or time-sensitive scenarios.
-          </p>
-
-          <ul class="about-list">
-            <li>10+ years of mortgage experience</li>
-            <li>Residential & commercial expertise</li>
-            <li>Newcomers, bruised credit, self-employed</li>
-            <li>Investments, rental portfolios & refinancing</li>
-          </ul>
-
-          <p class="disclaimer">
-            Licensing: Sukhpreet Singh, Mortgage Agent Level 2 with Mortgage Alliance, Brokerage License #10530.
-            Information on this website is for general purposes only and does not constitute a commitment to lend.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 style="margin-bottom: 0.5rem; font-size: 1.05rem;">Why clients choose to work with Sukhpreet</h3>
-          <ul class="about-list" style="grid-template-columns: 1fr;">
-            <li><strong>Clear explanation:</strong> Every rate, fee, and condition is explained in simple language.</li>
-            <li><strong>Strategy first:</strong> Focus on total cost over time, not just chasing the lowest rate.</li>
-            <li><strong>All types of mortgages:</strong> Purchases, refinances, renewals, debt consolidation, second mortgages, commercial and more.</li>
-            <li><strong>Responsive communication:</strong> WhatsApp, phone, email — you’re kept updated at each step.</li>
-            <li><strong>GTA & Ontario reach:</strong> Based in Brampton, serving clients across the province.</li>
-          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Mortgage solutions</div>
-        <h2 class="section-title">Residential & commercial mortgage options.</h2>
-        <p class="section-subtitle">
-          Whether you’re buying your first home, refinancing, or structuring financing for a business property, there is a strategy for your situation.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <h3 class="service-title">Residential Mortgages</h3>
-          <p>
-            Tailored solutions for first-time buyers, move-up buyers, and investors. Compare options across lenders
-            to find a mortgage that fits your payment comfort and long-term plans.
-          </p>
-          <div class="service-pills">
-            <span class="pill">First-time buyers</span>
-            <span class="pill">Repeat buyers</span>
-            <span class="pill">New to Canada</span>
-            <span class="pill">Rental properties</span>
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Tailored mortgage solutions, not copy–paste advice
           </div>
-        </article>
-
-        <article class="service-card">
-          <h3 class="service-title">Refinances & Renewals</h3>
-          <p>
-            Use your home equity for renovations, investments, or debt consolidation. At renewal, review your options
-            instead of signing the first offer — often, better terms are available.
+          <h2>
+            Get your
+            <span>mortgage approved</span>
+            with strategy, not stress.
+          </h2>
+          <p class="hero-subtitle">
+            I help first-time buyers, investors and business owners structure
+            residential and commercial mortgages across the GTA — even when the
+            bank has already said “no”.
           </p>
-          <div class="service-pills">
-            <span class="pill">Mortgage renewals</span>
-            <span class="pill">Equity take-out</span>
-            <span class="pill">Debt consolidation</span>
-            <span class="pill">Lower total interest</span>
+
+          <div class="hero-highlights">
+            <div class="chip">10+ years in mortgages</div>
+            <div class="chip">Residential & commercial</div>
+            <div class="chip">Access to multiple lenders</div>
           </div>
-        </article>
 
-        <article class="service-card">
-          <h3 class="service-title">Commercial & Business Financing</h3>
-          <p>
-            Financing for plazas, mixed-use buildings, industrial units, and other commercial properties. Structure
-            your mortgage to support cash flow and future expansion.
-          </p>
-          <div class="service-pills">
-            <span class="pill">Owner-occupied</span>
-            <span class="pill">Investment properties</span>
-            <span class="pill">Business for self</span>
-            <span class="pill">Private & alternative</span>
+          <div class="hero-cta">
+            <a href="tel:+14167064646" class="btn-primary">
+              📞 Book a 15-min call
+            </a>
+            <a
+              href="https://wa.me/14167064646"
+              class="btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              💬 WhatsApp your scenario
+            </a>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Process -->
-  <section id="process">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">How it works</div>
-        <h2 class="section-title">A simple, guided 4-step process.</h2>
-        <p class="section-subtitle">
-          From the first call to closing, you’ll know exactly what’s happening and why — no surprises.
-        </p>
-      </div>
-
-      <div class="process-grid">
-        <div class="step">
-          <div class="step-number">Step 1</div>
-          <div class="step-title">Discovery call</div>
-          <p class="step-body">
-            A short conversation to understand your goals, timelines, and any challenges (income, credit, down payment, etc.).
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">Step 2</div>
-          <div class="step-title">Strategy & pre-approval</div>
-          <p class="step-body">
-            Review documents, design a plan, and work toward a strong pre-approval so you can shop confidently.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">Step 3</div>
-          <div class="step-title">Lender selection</div>
-          <p class="step-body">
-            Compare options from different lenders and choose the one that fits your payment comfort and long-term strategy.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">Step 4</div>
-          <div class="step-title">Approval & closing</div>
-          <p class="step-body">
-            Finalize conditions, coordinate with your realtor and lawyer, and stay supported right up to closing day and beyond.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="reviews">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Client feedback</div>
-        <h2 class="section-title">What clients appreciate most.</h2>
-        <p class="section-subtitle">
-          These are sample testimonials — replace them with your real Google reviews later.
-        </p>
-      </div>
-
-      <div class="testimonials-grid">
-        <article class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “Sukhpreet walked us through our first home purchase with so much patience. We understood every step and never felt rushed.”
-          </p>
-          <div class="testimonial-name">Aman & Simran</div>
-          <div class="testimonial-meta">First-time buyers · Brampton</div>
-        </article>
-
-        <article class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “As a self-employed business owner, my file was not straightforward. He still found a solution that worked for my cash flow.”
-          </p>
-          <div class="testimonial-name">Rahul</div>
-          <div class="testimonial-meta">Self-employed · Mississauga</div>
-        </article>
-
-        <article class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            “We refinanced to consolidate debt and fund renovations. The numbers Sukhpreet showed us made the decision easy.”
-          </p>
-          <div class="testimonial-name">Nav & Jas</div>
-          <div class="testimonial-meta">Refinance clients · GTA</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">FAQ</div>
-        <h2 class="section-title">Common mortgage questions.</h2>
-        <p class="section-subtitle">
-          Every file is different, but here are answers to questions Sukhpreet hears almost every day.
-        </p>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <div class="faq-question">Do I pay you any fee as a mortgage agent?</div>
-          <div class="faq-answer">
-            For most standard residential mortgages with prime lenders, the lender pays the compensation, not you.
-            In some complex or private lending situations, a broker fee may apply — this is always disclosed upfront in writing before you proceed.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Can you help if my bank already declined me?</div>
-          <div class="faq-answer">
-            Yes. Different lenders have different rules. Sometimes, adjusting the structure of your file — income, down payment, co-applicant, or debt ratios — can turn a “no” into an approval.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Do you work with commercial and business mortgages?</div>
-          <div class="faq-answer">
-            Yes. Sukhpreet works on both residential and commercial files — including plazas, mixed-use, industrial, and business-for-self scenarios. The documentation is more detailed, but you’ll be guided step by step.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">I’m self-employed. Can I still qualify?</div>
-          <div class="faq-answer">
-            Many self-employed clients qualify with the right structure and lender choice. In addition to tax returns, lenders may look at bank statements, financials, and other documents to build a full picture of your income.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Get started</div>
-        <h2 class="section-title">Book a quick call or send a message.</h2>
-        <p class="section-subtitle">
-          Share a few details and Sukhpreet will reach out to discuss your situation and next steps — no pressure, just honest guidance.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card contact-details">
-          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+14167064646">+1 416-706-4646</a></p>
-          <p><strong>Email:</strong> <a href="mailto:sukhpreet@timefg.ca">sukhpreet@timefg.ca</a></p>
-          <p><strong>Location:</strong> Based in Brampton · Serving GTA & all of Ontario</p>
-          <p><strong>Brokerage:</strong> Mortgage Alliance · Brokerage Lic #10530</p>
-
-          <p class="contact-cta">
-            Prefer a callback? Fill out the form and mention a suitable time. Your information is kept confidential.
+          <p class="hero-note">
+            <b>No obligation.</b> A quick clarity call to see what you qualify
+            for and what’s realistically possible.
           </p>
         </div>
 
-        <form
-          class="card"
-          method="POST"
-          action="mailto:sukhpreet@timefg.ca?subject=New Mortgage Inquiry"
-          enctype="text/plain"
-        >
-          <div class="form-row">
-            <div>
-              <label for="name">Full Name *</label>
-              <input id="name" name="Name" type="text" required />
+        <div class="hero-right">
+          <div class="card-hero">
+            <div class="card-hero-top">
+              <div class="avatar">
+                <!-- Sukhpreet image -->
+                <img src="assets/sukhpreet-singh.png" alt="Sukhpreet Singh" />
+              </div>
+              <div class="advisor-text">
+                <h3>Sukhpreet Singh</h3>
+                <p>Mortgage Agent Level 2 – FSRA</p>
+                <span class="badge-years">10+ years experience</span>
+              </div>
             </div>
-            <div>
-              <label for="phone">Phone *</label>
-              <input id="phone" name="Phone" type="tel" required />
+
+            <p class="card-line">
+              <b>Specialties:</b> First-time buyers · Renewals & switches ·
+              Investment properties · Small business & commercial
+            </p>
+
+            <div class="pill-row">
+              <span class="pill">Owner-occupied</span>
+              <span class="pill">Investment properties</span>
+              <span class="pill">Business for self</span>
+              <span class="pill">Private & alternative</span>
+            </div>
+
+            <div class="lender-strip">
+              <span> Proud to be part of: </span>
+              <div class="logo-row">
+                <div class="lender-logo">
+                  <!-- Light logo -->
+                  <img
+                    src="assets/mortgage-alliance-logo-color.png"
+                    alt="Mortgage Alliance"
+                  />
+                </div>
+                <div class="lender-logo">
+                  <!-- Dark logo -->
+                  <img
+                    src="assets/mortgage-alliance-logo-dark.png"
+                    alt="Mortgage Alliance Dark"
+                  />
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="form-row">
-            <div>
-              <label for="email">Email *</label>
-              <input id="email" name="Email" type="email" required />
-            </div>
-            <div>
-              <label for="mortgageType">Mortgage Type</label>
-              <select id="mortgageType" name="Mortgage Type">
-                <option value="">Select an option</option>
-                <option>First-time purchase</option>
-                <option>Move-up / next home</option>
-                <option>Refinance / debt consolidation</option>
-                <option>Renewal</option>
-                <option>Investment / rental</option>
-                <option>Commercial / business</option>
-                <option>Other / not sure</option>
-              </select>
-            </div>
-          </div>
-
+      <!-- Services -->
+      <section class="section">
+        <div class="section-header">
           <div>
-            <label for="details">Briefly describe your situation *</label>
-            <textarea id="details" name="Details" required></textarea>
+            <p class="tagline">Mortgage solutions for every stage</p>
+            <h2 class="section-title">How I can help</h2>
           </div>
-
-          <div>
-            <label for="contactTime">Preferred time to contact</label>
-            <input id="contactTime" name="Preferred Contact Time" type="text" placeholder="e.g., Weekdays after 6 PM" />
-          </div>
-
-          <button type="submit" class="btn-primary btn-submit">
-            Submit your details
-          </button>
-
-          <p class="form-note">
-            By submitting this form, you agree to be contacted to discuss mortgage options. This is not a mortgage approval or commitment to lend.
+          <p class="section-sub">
+            From your first condo to expanding your business, we’ll structure a
+            plan that fits your cash flow and long-term goals.
           </p>
-        </form>
-      </div>
-    </div>
-  </section>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        © <span id="year"></span> Sukhpreet Singh · Mortgage Agent Level 2 · Mortgage Alliance (Brokerage Lic #10530)
-      </div>
-      <div>
-        Phone: <a href="tel:+14167064646">+1 416-706-4646</a> · Based in Brampton, Ontario
-      </div>
-    </div>
-  </footer>
+        <div class="services-grid">
+          <article class="card-service">
+            <h3>Residential Mortgages</h3>
+            <p>
+              Helping first-time and repeat buyers qualify with confidence,
+              including salaried and self-employed clients.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">First-time buyers</span>
+              <span class="service-tag">Move-up buyers</span>
+              <span class="service-tag">Pre-approvals</span>
+            </div>
+          </article>
 
-  <script>
-    // Mobile nav toggle
-    const navToggle = document.getElementById("navToggle");
-    const navMenu = document.getElementById("navMenu");
+          <article class="card-service">
+            <h3>Renewals, Switches & Refinance</h3>
+            <p>
+              Don’t just sign the lender’s first offer. We shop around to
+              potentially lower your payment or access equity.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Renewals</span>
+              <span class="service-tag">Switches</span>
+              <span class="service-tag">Debt consolidation</span>
+            </div>
+          </article>
 
-    navToggle.addEventListener("click", () => {
-      const isOpen = navMenu.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
+          <article class="card-service">
+            <h3>Investment & Commercial</h3>
+            <p>
+              Strategic financing for rental properties and small businesses so
+              your real estate can grow with you.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Rental properties</span>
+              <span class="service-tag">Mixed-use & plaza</span>
+              <span class="service-tag">Small business</span>
+            </div>
+          </article>
+        </div>
+      </section>
 
-    // Close nav on link click (mobile)
-    navMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
+      <!-- Process -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <p class="tagline">Know what’s happening at every step</p>
+            <h2 class="section-title">A simple 4-step process</h2>
+          </div>
+          <p class="section-sub">
+            Clear communication from first call to closing — so you always know
+            what documents are needed and what comes next.
+          </p>
+        </div>
 
-    // Set current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+        <div class="process-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>15-min clarity call</h3>
+            <p>
+              We discuss your goals, timeline and any past declines or
+              challenges so we know where to focus.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Document review & strategy</h3>
+            <p>
+              I review your income, credit and property details and build a
+              step-by-step approval plan tailored to you.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Lender shopping</h3>
+            <p>
+              We compare options from multiple lenders — rates, penalties and
+              terms — not just the headline number.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Approval to closing</h3>
+            <p>
+              I stay with you until keys in hand, coordinating with your lawyer,
+              realtor and lender so nothing is missed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial + Contact -->
+      <section class="section">
+        <div class="testimonial-cta">
+          <div class="card-quote">
+            <div class="quote-mark">“</div>
+            <p>
+              We had already been declined by our bank and felt stuck. Sukhpreet
+              explained our options in simple language, helped clean up our
+              file, and got us approved with a lender that actually fit our
+              situation.
+            </p>
+            <p class="quote-author">Client from Brampton</p>
+            <p class="quote-meta">First-time home buyer · 2025</p>
+          </div>
+
+          <div class="card-contact">
+            <div>
+              <h3>Let’s talk about your mortgage</h3>
+              <p>
+                Share your scenario over a quick call or WhatsApp message, and
+                I’ll tell you exactly what’s realistic — no pressure, no sales
+                pitch.
+              </p>
+            </div>
+
+            <div>
+              <p class="contact-row">
+                <b>Phone:</b>
+                <a href="tel:+14167064646">+1&nbsp;416-706-4646</a>
+              </p>
+              <p class="contact-row">
+                <b>Email:</b>
+                <a href="mailto:sukhpreet@timefg.ca">sukhpreet@timefg.ca</a>
+              </p>
+              <p class="contact-row">
+                <b>Location:</b> Based in Brampton · Serving GTA & Ontario
+              </p>
+            </div>
+
+            <div>
+              <a
+                href="https://wa.me/14167064646"
+                class="btn-whatsapp"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>🟢</span> WhatsApp your mortgage question
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      FSRA-licensed Mortgage Agent Level 2 with Mortgage Alliance (Brokerage Lic
+      #10530). This is not a commitment to lend. All approvals are subject to
+      lender guidelines & conditions.
+    </footer>
+  </div>
 </body>
 </html>
